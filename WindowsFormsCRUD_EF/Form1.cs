@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework;
@@ -94,7 +95,7 @@ namespace WindowsFormsCRUD_EF
                             db.Set<Employee>().Attach(obj);
                         db.Entry<Employee>(obj).State = EntityState.Deleted;
                         db.SaveChanges();
-                        MetroMessageBox.Show(this, "Deleted Successfully");
+                        MetroMessageBox.Show(this, "Deleted Successfully", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         employeeBindingSource.RemoveCurrent();
                         metroPanel1.Enabled = false;
                         pictureBox1.Image = null;
@@ -113,15 +114,33 @@ namespace WindowsFormsCRUD_EF
                     if (db.Entry<Employee>(obj).State == EntityState.Detached)
                         db.Set<Employee>().Attach(obj);
                     if(obj.EmpID == 0)
+                    {
+                        if(pictureBox1.Image == null)
+                        {
+                            MetroMessageBox.Show(this, "Please select an image","Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                         db.Entry(obj).State = EntityState.Added;
+                    }                      
                     else
                         db.Entry(obj).State = EntityState.Modified;
                     db.SaveChanges();
-                    MetroMessageBox.Show(this, "Saved Successfully");
+                    MetroMessageBox.Show(this, "Saved Successfully","Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     metroGrid1.Refresh();
                     metroPanel1.Enabled = true;
                 }
             }
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            Regex regex = new Regex(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+            bool isValid = regex.IsMatch(txtEmail.Text.Trim());
+            if (!isValid)
+            {
+                MetroMessageBox.Show(this, "Invalid Email, Check Again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtEmail.Clear();
+            }               
         }
     }
 }
