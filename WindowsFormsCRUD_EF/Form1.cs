@@ -83,7 +83,7 @@ namespace WindowsFormsCRUD_EF
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MetroMessageBox.Show(this, $"Are you sure, do you want to delete this Record with {txtName.Text}?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MetroMessageBox.Show(this, $"Are you sure, do you want to delete {txtName.Text} record ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 using(var db = new ModelContext())
                 {

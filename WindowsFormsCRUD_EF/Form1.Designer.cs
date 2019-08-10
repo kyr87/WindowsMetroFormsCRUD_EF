@@ -33,11 +33,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.empIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birthdayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBrowse = new MetroFramework.Controls.MetroButton();
             this.txtEmpID = new MetroFramework.Controls.MetroTextBox();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.txtBirthday = new MetroFramework.Controls.MetroTextBox();
+            this.txtAddress = new MetroFramework.Controls.MetroTextBox();
+            this.htmlLabel5 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.txtEmail = new MetroFramework.Controls.MetroTextBox();
             this.txtName = new MetroFramework.Controls.MetroTextBox();
             this.htmlLabel4 = new MetroFramework.Drawing.Html.HtmlLabel();
@@ -49,18 +56,11 @@
             this.btnDelete = new MetroFramework.Controls.MetroButton();
             this.btnCancel = new MetroFramework.Controls.MetroButton();
             this.btnSave = new MetroFramework.Controls.MetroButton();
-            this.htmlLabel5 = new MetroFramework.Drawing.Html.HtmlLabel();
-            this.txtAddress = new MetroFramework.Controls.MetroTextBox();
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.empIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birthdayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.metroPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // metroGrid1
@@ -68,6 +68,7 @@
             this.metroGrid1.AllowUserToResizeRows = false;
             this.metroGrid1.AutoGenerateColumns = false;
             this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -114,6 +115,45 @@
             this.metroGrid1.TabIndex = 0;
             this.metroGrid1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellClick);
             // 
+            // empIDDataGridViewTextBoxColumn
+            // 
+            this.empIDDataGridViewTextBoxColumn.DataPropertyName = "EmpID";
+            this.empIDDataGridViewTextBoxColumn.HeaderText = "EmpID";
+            this.empIDDataGridViewTextBoxColumn.Name = "empIDDataGridViewTextBoxColumn";
+            this.empIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // birthdayDataGridViewTextBoxColumn
+            // 
+            this.birthdayDataGridViewTextBoxColumn.DataPropertyName = "Birthday";
+            this.birthdayDataGridViewTextBoxColumn.HeaderText = "Birthday";
+            this.birthdayDataGridViewTextBoxColumn.Name = "birthdayDataGridViewTextBoxColumn";
+            this.birthdayDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataSource = typeof(WindowsFormsCRUD_EF.Employee);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -126,7 +166,7 @@
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(115, 262);
+            this.btnBrowse.Location = new System.Drawing.Point(114, 262);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
             this.btnBrowse.TabIndex = 3;
@@ -140,7 +180,7 @@
             // 
             // 
             this.txtEmpID.CustomButton.Image = null;
-            this.txtEmpID.CustomButton.Location = new System.Drawing.Point(151, 1);
+            this.txtEmpID.CustomButton.Location = new System.Drawing.Point(201, 1);
             this.txtEmpID.CustomButton.Name = "";
             this.txtEmpID.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtEmpID.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -150,7 +190,7 @@
             this.txtEmpID.CustomButton.Visible = false;
             this.txtEmpID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "EmpID", true));
             this.txtEmpID.Lines = new string[0];
-            this.txtEmpID.Location = new System.Drawing.Point(439, 19);
+            this.txtEmpID.Location = new System.Drawing.Point(502, 14);
             this.txtEmpID.MaxLength = 32767;
             this.txtEmpID.Name = "txtEmpID";
             this.txtEmpID.PasswordChar = '\0';
@@ -160,7 +200,7 @@
             this.txtEmpID.SelectionLength = 0;
             this.txtEmpID.SelectionStart = 0;
             this.txtEmpID.ShortcutsEnabled = true;
-            this.txtEmpID.Size = new System.Drawing.Size(173, 23);
+            this.txtEmpID.Size = new System.Drawing.Size(223, 23);
             this.txtEmpID.TabIndex = 4;
             this.txtEmpID.UseSelectable = true;
             this.txtEmpID.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -168,9 +208,9 @@
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.metroDateTime1);
             this.metroPanel1.Controls.Add(this.txtAddress);
             this.metroPanel1.Controls.Add(this.htmlLabel5);
-            this.metroPanel1.Controls.Add(this.txtBirthday);
             this.metroPanel1.Controls.Add(this.txtEmail);
             this.metroPanel1.Controls.Add(this.txtName);
             this.metroPanel1.Controls.Add(this.htmlLabel4);
@@ -183,44 +223,58 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(572, 63);
+            this.metroPanel1.Location = new System.Drawing.Point(589, 63);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(634, 468);
+            this.metroPanel1.Size = new System.Drawing.Size(781, 468);
             this.metroPanel1.TabIndex = 1;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
-            // txtBirthday
+            // txtAddress
             // 
             // 
             // 
             // 
-            this.txtBirthday.CustomButton.Image = null;
-            this.txtBirthday.CustomButton.Location = new System.Drawing.Point(151, 1);
-            this.txtBirthday.CustomButton.Name = "";
-            this.txtBirthday.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtBirthday.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtBirthday.CustomButton.TabIndex = 1;
-            this.txtBirthday.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtBirthday.CustomButton.UseSelectable = true;
-            this.txtBirthday.CustomButton.Visible = false;
-            this.txtBirthday.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "Birthday", true));
-            this.txtBirthday.Lines = new string[0];
-            this.txtBirthday.Location = new System.Drawing.Point(439, 180);
-            this.txtBirthday.MaxLength = 32767;
-            this.txtBirthday.Name = "txtBirthday";
-            this.txtBirthday.PasswordChar = '\0';
-            this.txtBirthday.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBirthday.SelectedText = "";
-            this.txtBirthday.SelectionLength = 0;
-            this.txtBirthday.SelectionStart = 0;
-            this.txtBirthday.ShortcutsEnabled = true;
-            this.txtBirthday.Size = new System.Drawing.Size(173, 23);
-            this.txtBirthday.TabIndex = 12;
-            this.txtBirthday.UseSelectable = true;
-            this.txtBirthday.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtBirthday.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtAddress.CustomButton.Image = null;
+            this.txtAddress.CustomButton.Location = new System.Drawing.Point(111, 1);
+            this.txtAddress.CustomButton.Name = "";
+            this.txtAddress.CustomButton.Size = new System.Drawing.Size(111, 111);
+            this.txtAddress.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtAddress.CustomButton.TabIndex = 1;
+            this.txtAddress.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtAddress.CustomButton.UseSelectable = true;
+            this.txtAddress.CustomButton.Visible = false;
+            this.txtAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "Address", true));
+            this.txtAddress.Lines = new string[0];
+            this.txtAddress.Location = new System.Drawing.Point(502, 228);
+            this.txtAddress.MaxLength = 32767;
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.PasswordChar = '\0';
+            this.txtAddress.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtAddress.SelectedText = "";
+            this.txtAddress.SelectionLength = 0;
+            this.txtAddress.SelectionStart = 0;
+            this.txtAddress.ShortcutsEnabled = true;
+            this.txtAddress.Size = new System.Drawing.Size(223, 113);
+            this.txtAddress.TabIndex = 14;
+            this.txtAddress.UseSelectable = true;
+            this.txtAddress.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtAddress.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // htmlLabel5
+            // 
+            this.htmlLabel5.AutoScroll = true;
+            this.htmlLabel5.AutoScrollMinSize = new System.Drawing.Size(112, 48);
+            this.htmlLabel5.AutoSize = false;
+            this.htmlLabel5.BackColor = System.Drawing.SystemColors.Window;
+            this.htmlLabel5.Font = new System.Drawing.Font("Poor Richard", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.htmlLabel5.Location = new System.Drawing.Point(307, 219);
+            this.htmlLabel5.Name = "htmlLabel5";
+            this.htmlLabel5.Size = new System.Drawing.Size(159, 48);
+            this.htmlLabel5.TabIndex = 13;
+            this.htmlLabel5.Text = "Address";
             // 
             // txtEmail
             // 
@@ -228,7 +282,7 @@
             // 
             // 
             this.txtEmail.CustomButton.Image = null;
-            this.txtEmail.CustomButton.Location = new System.Drawing.Point(151, 1);
+            this.txtEmail.CustomButton.Location = new System.Drawing.Point(201, 1);
             this.txtEmail.CustomButton.Name = "";
             this.txtEmail.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -238,7 +292,7 @@
             this.txtEmail.CustomButton.Visible = false;
             this.txtEmail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "Email", true));
             this.txtEmail.Lines = new string[0];
-            this.txtEmail.Location = new System.Drawing.Point(439, 126);
+            this.txtEmail.Location = new System.Drawing.Point(502, 121);
             this.txtEmail.MaxLength = 32767;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
@@ -247,7 +301,7 @@
             this.txtEmail.SelectionLength = 0;
             this.txtEmail.SelectionStart = 0;
             this.txtEmail.ShortcutsEnabled = true;
-            this.txtEmail.Size = new System.Drawing.Size(173, 23);
+            this.txtEmail.Size = new System.Drawing.Size(223, 23);
             this.txtEmail.TabIndex = 11;
             this.txtEmail.UseSelectable = true;
             this.txtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -259,7 +313,7 @@
             // 
             // 
             this.txtName.CustomButton.Image = null;
-            this.txtName.CustomButton.Location = new System.Drawing.Point(151, 1);
+            this.txtName.CustomButton.Location = new System.Drawing.Point(201, 1);
             this.txtName.CustomButton.Name = "";
             this.txtName.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -269,7 +323,7 @@
             this.txtName.CustomButton.Visible = false;
             this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "Name", true));
             this.txtName.Lines = new string[0];
-            this.txtName.Location = new System.Drawing.Point(439, 71);
+            this.txtName.Location = new System.Drawing.Point(502, 66);
             this.txtName.MaxLength = 32767;
             this.txtName.Name = "txtName";
             this.txtName.PasswordChar = '\0';
@@ -278,7 +332,7 @@
             this.txtName.SelectionLength = 0;
             this.txtName.SelectionStart = 0;
             this.txtName.ShortcutsEnabled = true;
-            this.txtName.Size = new System.Drawing.Size(173, 23);
+            this.txtName.Size = new System.Drawing.Size(223, 23);
             this.txtName.TabIndex = 10;
             this.txtName.UseSelectable = true;
             this.txtName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -291,9 +345,9 @@
             this.htmlLabel4.AutoSize = false;
             this.htmlLabel4.BackColor = System.Drawing.SystemColors.Window;
             this.htmlLabel4.Font = new System.Drawing.Font("Poor Richard", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.htmlLabel4.Location = new System.Drawing.Point(303, 165);
+            this.htmlLabel4.Location = new System.Drawing.Point(307, 165);
             this.htmlLabel4.Name = "htmlLabel4";
-            this.htmlLabel4.Size = new System.Drawing.Size(130, 48);
+            this.htmlLabel4.Size = new System.Drawing.Size(159, 48);
             this.htmlLabel4.TabIndex = 9;
             this.htmlLabel4.Text = "Birthday";
             // 
@@ -304,9 +358,9 @@
             this.htmlLabel3.AutoSize = false;
             this.htmlLabel3.BackColor = System.Drawing.SystemColors.Window;
             this.htmlLabel3.Font = new System.Drawing.Font("Poor Richard", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.htmlLabel3.Location = new System.Drawing.Point(303, 111);
+            this.htmlLabel3.Location = new System.Drawing.Point(307, 111);
             this.htmlLabel3.Name = "htmlLabel3";
-            this.htmlLabel3.Size = new System.Drawing.Size(130, 48);
+            this.htmlLabel3.Size = new System.Drawing.Size(159, 48);
             this.htmlLabel3.TabIndex = 8;
             this.htmlLabel3.Text = "Email";
             // 
@@ -317,9 +371,9 @@
             this.htmlLabel1.AutoSize = false;
             this.htmlLabel1.BackColor = System.Drawing.SystemColors.Window;
             this.htmlLabel1.Font = new System.Drawing.Font("Poor Richard", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.htmlLabel1.Location = new System.Drawing.Point(303, 3);
+            this.htmlLabel1.Location = new System.Drawing.Point(307, 3);
             this.htmlLabel1.Name = "htmlLabel1";
-            this.htmlLabel1.Size = new System.Drawing.Size(130, 48);
+            this.htmlLabel1.Size = new System.Drawing.Size(159, 48);
             this.htmlLabel1.TabIndex = 7;
             this.htmlLabel1.Text = "Emp ID";
             // 
@@ -330,9 +384,9 @@
             this.htmlLabel2.AutoSize = false;
             this.htmlLabel2.BackColor = System.Drawing.SystemColors.Window;
             this.htmlLabel2.Font = new System.Drawing.Font("Poor Richard", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.htmlLabel2.Location = new System.Drawing.Point(303, 57);
+            this.htmlLabel2.Location = new System.Drawing.Point(307, 57);
             this.htmlLabel2.Name = "htmlLabel2";
-            this.htmlLabel2.Size = new System.Drawing.Size(130, 48);
+            this.htmlLabel2.Size = new System.Drawing.Size(159, 48);
             this.htmlLabel2.TabIndex = 6;
             this.htmlLabel2.Text = "Name";
             // 
@@ -386,91 +440,20 @@
             this.btnSave.UseSelectable = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // htmlLabel5
+            // metroDateTime1
             // 
-            this.htmlLabel5.AutoScroll = true;
-            this.htmlLabel5.AutoScrollMinSize = new System.Drawing.Size(112, 48);
-            this.htmlLabel5.AutoSize = false;
-            this.htmlLabel5.BackColor = System.Drawing.SystemColors.Window;
-            this.htmlLabel5.Font = new System.Drawing.Font("Poor Richard", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.htmlLabel5.Location = new System.Drawing.Point(303, 219);
-            this.htmlLabel5.Name = "htmlLabel5";
-            this.htmlLabel5.Size = new System.Drawing.Size(130, 48);
-            this.htmlLabel5.TabIndex = 13;
-            this.htmlLabel5.Text = "Address";
-            // 
-            // txtAddress
-            // 
-            // 
-            // 
-            // 
-            this.txtAddress.CustomButton.Image = null;
-            this.txtAddress.CustomButton.Location = new System.Drawing.Point(61, 1);
-            this.txtAddress.CustomButton.Name = "";
-            this.txtAddress.CustomButton.Size = new System.Drawing.Size(111, 111);
-            this.txtAddress.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtAddress.CustomButton.TabIndex = 1;
-            this.txtAddress.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtAddress.CustomButton.UseSelectable = true;
-            this.txtAddress.CustomButton.Visible = false;
-            this.txtAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "Address", true));
-            this.txtAddress.Lines = new string[0];
-            this.txtAddress.Location = new System.Drawing.Point(439, 233);
-            this.txtAddress.MaxLength = 32767;
-            this.txtAddress.Multiline = true;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.PasswordChar = '\0';
-            this.txtAddress.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtAddress.SelectedText = "";
-            this.txtAddress.SelectionLength = 0;
-            this.txtAddress.SelectionStart = 0;
-            this.txtAddress.ShortcutsEnabled = true;
-            this.txtAddress.Size = new System.Drawing.Size(173, 113);
-            this.txtAddress.TabIndex = 14;
-            this.txtAddress.UseSelectable = true;
-            this.txtAddress.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtAddress.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataSource = typeof(WindowsFormsCRUD_EF.Employee);
-            // 
-            // empIDDataGridViewTextBoxColumn
-            // 
-            this.empIDDataGridViewTextBoxColumn.DataPropertyName = "EmpID";
-            this.empIDDataGridViewTextBoxColumn.HeaderText = "EmpID";
-            this.empIDDataGridViewTextBoxColumn.Name = "empIDDataGridViewTextBoxColumn";
-            this.empIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // birthdayDataGridViewTextBoxColumn
-            // 
-            this.birthdayDataGridViewTextBoxColumn.DataPropertyName = "Birthday";
-            this.birthdayDataGridViewTextBoxColumn.HeaderText = "Birthday";
-            this.birthdayDataGridViewTextBoxColumn.Name = "birthdayDataGridViewTextBoxColumn";
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.metroDateTime1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "Birthday", true));
+            this.metroDateTime1.Location = new System.Drawing.Point(502, 175);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime1.Name = "metroDateTime1";
+            this.metroDateTime1.Size = new System.Drawing.Size(223, 29);
+            this.metroDateTime1.TabIndex = 15;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1223, 653);
+            this.ClientSize = new System.Drawing.Size(1393, 653);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
@@ -482,9 +465,9 @@
             this.Text = "Demo CRUD with EF";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.metroPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -496,7 +479,6 @@
         private MetroFramework.Controls.MetroButton btnBrowse;
         private MetroFramework.Controls.MetroTextBox txtEmpID;
         private MetroFramework.Controls.MetroPanel metroPanel1;
-        private MetroFramework.Controls.MetroTextBox txtBirthday;
         private MetroFramework.Controls.MetroTextBox txtEmail;
         private MetroFramework.Controls.MetroTextBox txtName;
         private MetroFramework.Drawing.Html.HtmlLabel htmlLabel4;
@@ -510,12 +492,13 @@
         private MetroFramework.Controls.MetroButton btnSave;
         private MetroFramework.Controls.MetroTextBox txtAddress;
         private MetroFramework.Drawing.Html.HtmlLabel htmlLabel5;
+        private System.Windows.Forms.BindingSource employeeBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn empIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthdayDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource employeeBindingSource;
+        private MetroFramework.Controls.MetroDateTime metroDateTime1;
     }
 }
 

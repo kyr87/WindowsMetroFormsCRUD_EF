@@ -73,6 +73,10 @@
     <Compile Include="Migrations\201908101343291_Initial.Designer.cs">
       <DependentUpon>201908101343291_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908101643545_changeToDateTime.cs" />
+    <Compile Include="Migrations\201908101643545_changeToDateTime.Designer.cs">
+      <DependentUpon>201908101643545_changeToDateTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelContext.cs" />
     <Compile Include="Program.cs" />
@@ -82,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908101343291_Initial.resx">
       <DependentUpon>201908101343291_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908101643545_changeToDateTime.resx">
+      <DependentUpon>201908101643545_changeToDateTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
