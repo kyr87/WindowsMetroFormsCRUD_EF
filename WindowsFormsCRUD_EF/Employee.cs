@@ -12,9 +12,10 @@ namespace WindowsFormsCRUD_EF
         [Key]
         public int EmpID { get; set; }
         public string Name { get; set; }
+        [Required]
         [EmailAddress]
         public string Email { get; set; }
-        public DateTime Birthday { get; set; }
+        public DateTime? Birthday { get; set; }
         public string Address { get; set; }
         public string ImageUrl { get; set; }
     }

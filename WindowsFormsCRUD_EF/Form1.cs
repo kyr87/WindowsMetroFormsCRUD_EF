@@ -115,9 +115,9 @@ namespace WindowsFormsCRUD_EF
                         db.Set<Employee>().Attach(obj);
                     if(obj.EmpID == 0)
                     {
-                        if(pictureBox1.Image == null)
+                        if(pictureBox1.Image == null || txtEmail.Text == string.Empty)
                         {
-                            MetroMessageBox.Show(this, "Please select an image","Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MetroMessageBox.Show(this, "Please select an Image and Email","Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                         db.Entry(obj).State = EntityState.Added;
@@ -127,7 +127,7 @@ namespace WindowsFormsCRUD_EF
                     db.SaveChanges();
                     MetroMessageBox.Show(this, "Saved Successfully","Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     metroGrid1.Refresh();
-                    metroPanel1.Enabled = true;
+                    metroPanel1.Enabled = false;
                 }
             }
         }
