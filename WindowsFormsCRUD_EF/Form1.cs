@@ -70,15 +70,23 @@ namespace WindowsFormsCRUD_EF
         {
             metroPanel1.Enabled = false;
             employeeBindingSource.ResetBindings(false);
+            txtSearch.Text = string.Empty;
             Form1_Load(sender, e);
         }
 
         private void metroGrid1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var obj = employeeBindingSource.Current as Employee;
-            if (obj != null)
+            try
             {
-                pictureBox1.Image = Image.FromFile(obj.ImageUrl);
+                if (obj != null)
+                {
+                    pictureBox1.Image = Image.FromFile(obj.ImageUrl);
+                }
+            }
+            catch (ArgumentNullException)
+            {
+                MetroMessageBox.Show(this, "No avaliable Record", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -141,6 +149,16 @@ namespace WindowsFormsCRUD_EF
                 MetroMessageBox.Show(this, "Invalid Email, Check Again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtEmail.Clear();
             }               
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var db = new ModelContext();
+
+            if (txtSearch.Text == string.Empty)
+                employeeBindingSource.DataSource = db.Employees.ToList();
+            else
+                employeeBindingSource.DataSource = db.Employees.Where(x => x.Name.Contains(txtSearch.Text)).ToList();
         }
     }
 }
